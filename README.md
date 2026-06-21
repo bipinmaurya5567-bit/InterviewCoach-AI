@@ -7,11 +7,17 @@ InterviewCoach AI is a premium, state-of-the-art mock interview web application.
 ## ✨ Features
 
 - **🤖 LLaMA-3 Powered Interviewer:** Integrates the `llama-3.3-70b-versatile` model via **Groq** to generate highly personalized questions based on candidate resumes and target job roles.
+
 - **😊 Facial Emotion Detection:** Utilizes **`face-api.js`** (`tinyFaceDetector` & `faceExpressionNet`) to analyze and log candidate confidence and nervous indicators through the webcam every 2 seconds.
+
 - **🎙️ Real-time Speech-to-Text:** Implements the **Web Speech API** (`SpeechRecognition`) for hands-free answering, with an active listening interface and automated silence detection.
+
 - **🔊 Multi-tier Text-to-Speech:** Uses **ElevenLabs TTS API** (Rachel Voice) to read interview questions aloud, falling back seamlessly to browser-native `speechSynthesis` if API limits or keys are absent.
+
 - **📄 Client-Side PDF Parser:** Parses text from uploaded PDF resumes locally using a zero-dependency binary stream reader (`FileReader` + RegExp parser) without requiring Firestore/cloud processing.
+
 - **📊 Comprehensive Performance Reports:** Generates an overall score out of 100, lists key strengths, areas for improvement, coaching tips, and renders an interactive emotion timeline graph.
+
 - **🏆 Global Leaderboard:** Ranks candidates globally using scores persisted to **Firebase Firestore** with built-in Google Authentication.
 
 ---
@@ -19,10 +25,15 @@ InterviewCoach AI is a premium, state-of-the-art mock interview web application.
 ## 🛠️ Technology Stack
 
 - **Core Framework:** Next.js 16 (App Router), React 19, TypeScript
+
 - **Styling & Animation:** TailwindCSS, Vanilla CSS, Framer Motion
+
 - **AI & Speech API:** Groq Cloud SDK (LLaMA-3.3 70B), ElevenLabs TTS API, Web Speech API (SpeechRecognition)
+
 - **Computer Vision:** `face-api.js` (Tiny Face Detector, Face Expression Net)
+
 - **Database & Auth:** Firebase Auth, Firebase Firestore SDK
+
 - **Data Visualization:** Recharts (Emotion timeline & scores)
 
 ---
@@ -73,10 +84,12 @@ interviewcoach-ai/
 ## ⚡ Setup & Installation
 
 ### 1. Prerequisites
+
 - **Node.js** (v18+ recommended)
 - **npm** or **yarn**
 
 ### 2. Environment Configuration
+
 Create a `.env.local` file in the root directory and add the following keys:
 
 ```env
@@ -98,6 +111,7 @@ NEXT_PUBLIC_FIREBASE_MEASUREMENT_ID=G-...
 ```
 
 ### 3. Run Development Server
+
 Install dependencies and run:
 
 ```bash
@@ -147,9 +161,9 @@ If any metric scores below **60**, the model automatically generates a situation
 ## 🤝 Key Integrations & Helpers
 
 ### Web Speech API Error Resilience
+
 The [useSpeechRecognition.ts](file:///c:/Users/Bipin%20Maurya/OneDrive/Documents/interviewcoach-ai/hooks/useSpeechRecognition.ts) hook is configured to gracefully ignore `"aborted"` errors and silently cleanup previous callbacks before launching a new recognition stream. This prevents overlapping threads and resolves device conflicts on mobile/Safari browsers.
 
 ### Offline / Spark Firebase Compatibility
+
 No external storage uploading is required for resumes. Resumes are parsed locally on the client's thread using [pdf-parser.ts](file:///c:/Users/Bipin%20Maurya/OneDrive/Documents/interviewcoach-ai/lib/pdf-parser.ts) and converted directly to text for inclusion in LLM prompt templates, ensuring compliance with Firebase Spark tier quotas.
-#   I n t e r v i e w C o a c h - A I  
- 
